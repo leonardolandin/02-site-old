@@ -1,0 +1,53 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.bodyContainer {
+    width: 100vw;
+    height: 100vh;
+}
+
+.menuContainer {
+    height: 80px;
+    width: 100%;    
+}
+
+.menuContainer > nav {
+    background-color: #f1f1f1;
+    height: 100%;
+}
+
+.menuContainer > nav > ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    width: 50%;
+    justify-content: center;
+    height: 100%;
+}
+
+.menuContainer > nav > ul > li {
+    list-style-type: none;
+    width: 180px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+.menuContainer > nav > ul > li > a {
+    font-family: cursive;
+    font-size: x-large;
+    text-decoration: none;
+    height: 100%;
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s all;
+    color: black;
+}
+
+.divContainer {
+    display: none;
+}
