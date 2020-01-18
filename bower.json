@@ -1,0 +1,21 @@
+{
+  "name": "Ajudando",
+  "homepage": "https://github.com/leonardolandin/AjudandoV2",
+  "authors": [
+    "Leo"
+  ],
+  "description": "pessoal",
+  "main": "index.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "crossroads.js": "^0.12.2",
+    "hasher": "^1.2.0"
+  }
+}
