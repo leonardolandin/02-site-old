@@ -16,16 +16,23 @@
                     <li><a href="#/videos">Video-Aulas</a></li>
                     <li><a href="#/configuracoes">Configurações</a></li>
                 </ul>
-                <div>
+                <div style="display: none;">
                     <div onclick="showModalUser()">
                         <img src="/app/images/user-icon.png" alt="">
                         <span>Nome do meliante</span>
                     </div>
                 </div>
-                <div class="optionsModalUser" id="modalUser">
+                <div class="optionsModalUser" id="modalUser" style="display: none;">
                     <a href="#/perfil">Meu Perfil</a>
                     <a href="#/minhas-atividades">Minhas Atividades</a>
                     <a href="">Sair</a>
+                </div>
+                <div>
+                    <div class="containerSign">
+                        <a class="signUp" href="login.html#/entrar/cadastrar">Cadastrar-se</a>
+                        <span class="divisorLogin"> / </span>
+                        <a class="sigIn" href="login.html#/entrar">Entrar</a>
+                    </div>
                 </div>
             </nav>
         </div>
@@ -44,6 +51,6 @@
     <script src="/bower_components/hasher/dist/js/hasher.min.js"></script>
     <script src="/bower_components/crossroads.js/dist/crossroads.min.js"></script>
     <script src="/app/script/routes.js"></script>
-    <script src="/app/script/menuController.js"></script>
+    <script src="/app/script/controller/menuController.js"></script>
 </body>
 </html>
