@@ -3,7 +3,7 @@
     renderPage('perdemos')
   });
  
-  function parseHash(newHash, oldHash){
+  function parseHash(newHash, oldHash) {
     crossroads.parse(newHash);
   }
 
@@ -18,7 +18,7 @@
 
    function resetDocument() {
     var allPages = document.querySelectorAll('.divContainer')
-    for(i = 0; i < allPages.length; i++) {
+    for (i = 0; i < allPages.length; i++) {
       allPages[i].style.display = 'none'
     }
   }
