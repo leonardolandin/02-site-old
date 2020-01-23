@@ -1,0 +1,32 @@
+.divContainer {
+    display: none;
+    margin: 0px;
+    padding: 0px;
+    height: 100vh;
+    width: 100vw;
+}
+
+.background {
+    background-color: #f5f5f5;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerModalLogin {
+    height: 60%;
+    width: 30%;
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 12px;
+    padding: 30px;
+}
+
+.formLogin {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}

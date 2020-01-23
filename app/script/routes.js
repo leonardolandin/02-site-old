@@ -2,6 +2,10 @@
   crossroads.addRoute('/', function() {
     renderPage('perdemos')
   });
+
+  crossroads.addRoute('entrar', function() {
+    renderPage('login')
+  });
  
   function parseHash(newHash, oldHash) {
     crossroads.parse(newHash);
