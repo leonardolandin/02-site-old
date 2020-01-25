@@ -10,13 +10,33 @@
 <body class="divContainer" id="login">
     <div class="background">
         <div class="containerModalLogin">
-            <form class="formLogin">
+            <form class="formLogin" method="POST">
                 <div>
-                    <span></span>
+                    <img src="/app/images/logo.png" alt="" class="logoInModal">
+                </div>
+                <div class="spaceInModels">
+                    <span>Login</span>
                 </div>
                 <div>
-                    <label for="">E-mail</label>
-                    <input type="text" name="" id="">
+                    <label for="">E-mail:</label>
+                    <input type="email" name="" placeholder="Digite o seu e-mail cadastrado">
+                    <img src="/app/images/email-icon.png" alt="" class="iconInInput">
+                </div>
+                <div class="spaceInModels">
+                    <label for="">Senha: </label>
+                    <input type="password" name="" placeholder="Digite a sua senha cadastrada">
+                    <img src="/app/images/password-icon.png" alt="" class="iconInInput">
+                </div>
+                <div>
+                    <div>
+                        <div>
+                            <a href="#/entrar/esqueci-minha-senha">Esqueci a minha senha</a>
+                        </div>
+                        <div>
+                            <a href="#/entrar/cadastrar">Não tenho cadastro</a>
+                        </div>
+                        <button type="button">Entrar</button>
+                    </div>
                 </div>
             </form>
         </div>
