@@ -6,9 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" href="/app/images/ico-ajudando.ico" type="image/x-icon">
     <link rel="stylesheet" href="/app/style/login.css">
-    <title>Ajudando - Entrar</title>
+    <link rel="stylesheet" href="/app/style/register.css">
+    <title>Ajudando - Cadastrar</title>
 </head>
-<body class="divContainer" id="login">
+<body class="divContainer" id="register">
     <div class="background">
         <div class="containerModalLogin">
             <form class="formLogin" method="POST">
@@ -16,27 +17,31 @@
                     <img src="/app/images/logo.png" alt="" class="logoInModal">
                 </div>
                 <div class="spaceInModels">
-                    <span>Login</span>
+                    <span>Cadastrar</span>
                 </div>
                 <div>
                     <label for="">E-mail:</label>
-                    <input type="email" name="" placeholder="Digite o seu e-mail cadastrado">
+                    <input type="email" name="" placeholder="Digite o seu e-mail">
                     <img src="/app/images/login/email-icon.png" alt="" class="iconInInput">
                 </div>
-                <div class="spaceInModels">
+                <div>
+                    <label for="">Nome:</label>
+                    <input type="text" name="" placeholder="Digite o seu nome">
+                    <img src="/app/images/user-icon.png" alt="" class="iconInInput">
+                </div>
+                <div>
                     <label for="">Senha: </label>
-                    <input type="password" name="" placeholder="Digite a sua senha cadastrada">
+                    <input type="password" name="" placeholder="Digite a sua senha">
+                    <img src="/app/images/login/password-icon.png" alt="" class="iconInInput">
+                </div>
+                <div class="spaceInModels">
+                    <label for="">Confirme sua senha: </label>
+                    <input type="password" name="" placeholder="Digite para confirmar a sua senha">
                     <img src="/app/images/login/password-icon.png" alt="" class="iconInInput">
                 </div>
                 <div>
                     <div>
-                        <div>
-                            <a href="passwordRecover.html#/entrar/esqueci-minha-senha">Esqueci a minha senha</a>
-                        </div>
-                        <div>
-                            <a href="register.html#/entrar/cadastrar">Não tenho cadastro</a>
-                        </div>
-                        <button type="button">Entrar</button>
+                        <button type="button">Cadastrar</button>
                     </div>
                 </div>
             </form>

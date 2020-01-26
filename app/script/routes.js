@@ -6,6 +6,10 @@
   crossroads.addRoute('entrar', function() {
     renderPage('login')
   });
+
+  crossroads.addRoute('entrar/cadastrar', function() {
+    renderPage('register')
+  });
  
   function parseHash(newHash, oldHash) {
     crossroads.parse(newHash);
