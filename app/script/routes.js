@@ -10,6 +10,10 @@
   crossroads.addRoute('entrar/cadastrar', function() {
     renderPage('register')
   });
+
+  crossroads.addRoute('entrar/esqueci-minha-senha', function() {
+    renderPage('passwordRecover')
+  });
  
   function parseHash(newHash, oldHash) {
     crossroads.parse(newHash);
