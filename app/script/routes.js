@@ -23,15 +23,15 @@
   hasher.changed.add(parseHash);
   hasher.init();
 
-   function renderPage(idDiv) {
+  function renderPage(idDiv) {
     resetDocument()
     document.getElementById(idDiv).style.display = 'flex'
   }
 
-   function resetDocument() {
+  function resetDocument() {
     var allPages = document.querySelectorAll('.divContainer')
     for (i = 0; i < allPages.length; i++) {
-      allPages[i].style.display = 'none'
+      allPages[i].style.display = 'none';
     }
   }
 })()

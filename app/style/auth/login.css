@@ -139,3 +139,18 @@
         width: 55%;
     } 
  }
+
+ .containerRemeberMe {
+    flex-direction: row !important;
+    align-items: center;
+ }
+
+ .boxRemember {
+    width: 20px !important;
+    margin-right: 10px;
+ }
+
+ .textRemember {
+    font-size: 17px !important;
+    color: gray;
+ } 

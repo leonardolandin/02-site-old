@@ -28,6 +28,10 @@
                     <input type="password" name="" placeholder="Digite a sua senha cadastrada">
                     <img src="/app/images/login/password-icon.png" alt="" class="iconInInput">
                 </div>
+                <div class="containerRemeberMe">
+                    <input class="boxRemember" type="checkbox" name="" id="rememberMe">
+                    <label class="textRemember" for="rememberMe">Lembrar Minha Senha</label>
+                </div>
                 <div>
                     <div>
                         <div>
@@ -36,7 +40,7 @@
                         <div>
                             <a href="/app/view/auth/register.html#/entrar/cadastrar">Não tenho cadastro</a>
                         </div>
-                        <button type="button">Entrar</button>
+                        <button onclick="login()" type="button">Entrar</button>
                     </div>
                 </div>
             </form>
@@ -46,6 +50,7 @@
     <script src="/bower_components/js-signals/dist/signals.min.js"></script>
     <script src="/bower_components/hasher/dist/js/hasher.min.js"></script>
     <script src="/bower_components/crossroads.js/dist/crossroads.min.js"></script>
+    <script src="/config/secrets.js"></script>
     <script src="/app/script/routes.js"></script>
     <script src="/app/script/auth/login.js"></script>
 </body>
