@@ -1,10 +1,10 @@
-***Montar ambiente local:
+***Montar ambiente local:***
 
 npm install -g bower
 bower install
 
 
-***Subir localhost:
+***Subir localhost:***
 
 php -S localhost:XXXX
 
