@@ -1,6 +1,7 @@
 ***Montar ambiente local:***
 
 npm install -g bower
+
 bower install
 
 
