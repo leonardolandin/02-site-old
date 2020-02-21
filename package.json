@@ -1,0 +1,23 @@
+{
+  "name": "02-site",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leonardolandin/02-site.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leonardolandin/02-site/issues"
+  },
+  "homepage": "https://github.com/leonardolandin/02-site#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
