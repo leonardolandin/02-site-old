@@ -1,5 +1,7 @@
 ***Montar ambiente local:***
 
+npm install
+
 npm install -g bower
 
 bower install
@@ -7,8 +9,4 @@ bower install
 
 ***Subir localhost:***
 
-php -S localhost:XXXX
-
-Ou
-
-Qualquer outro tipo de servidor.
+node server.js
