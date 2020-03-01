@@ -217,3 +217,11 @@
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
+
+.invalidInput::placeholder {
+  color: red;
+}
+
+.validInput::placeholder {
+  color: black;
+}

@@ -20,12 +20,12 @@
                 </div>
                 <div>
                     <label for="">E-mail:</label>
-                    <input type="email" name="" placeholder="Digite o seu e-mail cadastrado">
+                    <input type="email" id="email" onkeyup="validateInput('email')" maxlength="254" placeholder="Digite o seu e-mail cadastrado">
                     <img src="/images/login/email-icon.png" alt="" class="iconInInput">
                 </div>
                 <div class="spaceInModels">
                     <label for="">Senha: </label>
-                    <input type="password" name="" placeholder="Digite a sua senha cadastrada">
+                    <input type="password" id="password" onkeyup="validateInput('password')" maxlength="128" placeholder="Digite a sua senha cadastrada">
                     <img src="/images/login/password-icon.png" alt="" class="iconInInput">
                 </div>
                 <div class="containerRemeberMe">
@@ -42,7 +42,7 @@
                         <div>
                             <a href="/view/auth/register.html#/entrar/cadastrar">Não tenho cadastro</a>
                         </div>
-                        <button onclick="login()" type="button">Entrar</button>
+                        <button onclick="submitLogin()" type="button">Entrar</button>
                     </div>
                 </div>
             </form>
@@ -52,8 +52,10 @@
     <script src="/bower_components/js-signals/dist/signals.min.js"></script>
     <script src="/bower_components/hasher/dist/js/hasher.min.js"></script>
     <script src="/bower_components/crossroads.js/dist/crossroads.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="/config/secrets.js"></script>
     <script src="/script/routes.js"></script>
-    <script src="/script/auth/login.js"></script>
+    <script src="/script/factory/AuthAPI.js"></script>
+    <script src="/script/controller/loginController.js"></script>
 </body>
 </html>
