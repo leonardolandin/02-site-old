@@ -16,13 +16,6 @@
         });
     }
 
-    this.login = function() {
-        grecaptcha.ready(function() {
-            grecaptcha.execute(GOOGLE_RECAPTCHA_KEY, {action: 'login'}).then(function(token) {        
-            });
-        });
-    }
-
     this.validateInput = function(key) {
         let keyElement = document.getElementById(key);
 
@@ -37,13 +30,19 @@
         let password = document.getElementById('password');
 
         if(email.value && password.value) {
-            let credentialsUser = {
-                user: email.value,
-                pass: password.value
-            }
-            
-            AuthAPI.getUserByEmail('/login/', credentialsUser, function(data) {
-                console.log(data)
+
+            grecaptcha.ready(function() {
+                grecaptcha.execute(GOOGLE_RECAPTCHA_KEY, {action: 'login'}).then(function(token) {        
+                    let credentialsUser = {
+                        user: email.value,
+                        pass: password.value,
+                        recaptcha: token
+                    }
+                    
+                    AuthAPI.getUserByEmail('/login/', credentialsUser, function(data) {
+                        console.log(data)
+                    })
+                });
             })
     
         } else if(!email.value) {
