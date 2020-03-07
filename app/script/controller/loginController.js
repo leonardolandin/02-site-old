@@ -16,6 +16,26 @@
         });
     }
 
+    let rememberMe = document.getElementById('rememberMe');
+    let rememberMeLocal = localStorage.getItem('rememberMe');
+
+    if(rememberMeLocal == "true") {
+        let email = document.getElementById('email');
+        let password = document.getElementById('password');
+        rememberMe.checked = true;
+        
+        if(localStorage.getItem('user')) {
+            let userObj =  JSON.parse(localStorage.getItem('user'));
+
+            email.value = userObj.email;
+            password.value = userObj.password;
+        }
+    } else {
+        rememberMe.checked = false;
+        email.value = '';
+        password.value = '';
+    }
+
     this.validateInput = function(key) {
         let keyElement = document.getElementById(key);
 
@@ -23,6 +43,33 @@
             keyElement.style.borderColor = 'black';
             keyElement.classList.add('validInput');
         } 
+    }
+
+    this.invalidInput = function(type) {
+        type.style.borderColor = 'red';
+        type.classList.remove('validInput');
+        type.classList.add('invalidInput');
+    }
+
+    this.throwErrorValidation = function(message) {
+        let messageError = document.getElementById('messageError');
+        let email = document.getElementById('email');
+        let password = document.getElementById('password');
+        let containerError = document.getElementById('containerError');
+
+        if(containerError.style.visibility == 'visible') {
+            containerError.style.visibility = 'hidden';
+            containerError.style.opacity = '1';
+        }
+        containerError.style.visibility = 'visible';
+        messageError.innerHTML = message
+
+        invalidInput(email);
+        invalidInput(password);
+
+        setTimeout(function() {
+            containerError.style.opacity = '0';
+        }, 3000)
     }
 
     this.submitLogin = function() {
@@ -40,28 +87,39 @@
                     }
                     
                     AuthAPI.getUserByEmail('/login/', credentialsUser, function(data) {
-                        console.log(data)
+                        let dataUser = JSON.parse(data);
+                        
+                        if(dataUser && dataUser.statusCode && dataUser.statusCode === 401) {
+                            return throwErrorValidation(dataUser.message);
+                        }
+
+                        if(dataUser && dataUser.statusCode && dataUser.statusCode === 200) {
+                            if(dataUser.recaptcha.success) {
+                                localStorage.setItem('user', JSON.stringify(dataUser.user))
+                                if(rememberMe.checked) {
+                                    localStorage.setItem('rememberMe', rememberMe.checked);
+                                } else {
+                                    localStorage.setItem('rememberMe', rememberMe.checked);
+                                }
+
+                                location.href = location.origin
+                            } else {
+                                return throwErrorValidation("Um erro inesperado ocorreu");
+                            }
+                        }
                     })
                 });
             })
     
         } else if(!email.value) {
-            email.style.borderColor = 'red';
-            email.classList.remove('validInput');
-            email.classList.add('invalidInput');
+            invalidInput(email)
             if(!password.value) {
-                password.style.borderColor = 'red';
-                password.classList.remove('validInput');
-                password.classList.add('invalidInput');
+                invalidInput(password)
             }
         } else if(!password.value) {
-            password.style.borderColor = 'red';
-            password.classList.remove('validInput');
-            password.classList.add('invalidInput');
+            invalidInput(password)
             if(!email.value) {
-                email.style.borderColor = 'red';
-                email.classList.remove('validInput');
-                email.classList.add('invalidInput');
+                invalidInput(email)
             }
         }
     }

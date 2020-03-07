@@ -225,3 +225,21 @@
 .validInput::placeholder {
   color: black;
 }
+
+.containerError {
+  width: auto;
+  height: 10%;
+  background-color: #fd4545;
+  align-self: center;
+  border-radius: 13px;
+  border: 1px solid #fd4545;
+  position: absolute;
+  top: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  padding: 10px;
+  visibility: hidden;
+  transition: 0.4s;
+}
