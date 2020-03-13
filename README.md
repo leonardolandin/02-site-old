@@ -9,4 +9,4 @@ bower install
 
 ***Subir localhost:***
 
-node server.js
+npm run local
