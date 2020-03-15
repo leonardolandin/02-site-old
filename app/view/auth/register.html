@@ -21,27 +21,27 @@
                 </div>
                 <div>
                     <label for="">E-mail:</label>
-                    <input type="email" name="" placeholder="Digite o seu e-mail">
+                    <input type="email" id="email" onkeyup="validateInput('email')" placeholder="Digite o seu e-mail">
                     <img src="/images/login/email-icon.png" alt="" class="iconInInput">
                 </div>
                 <div>
                     <label for="">Nome:</label>
-                    <input type="text" name="" placeholder="Digite o seu nome">
+                    <input type="text" id="name" onkeyup="validateInput('name')" placeholder="Digite o seu nome">
                     <img src="/images/user-icon.png" alt="" class="iconInInput">
                 </div>
                 <div>
                     <label for="">Senha: </label>
-                    <input type="password" name="" placeholder="Digite a sua senha">
+                    <input type="password" id="password" onkeyup="validateInput('password')" placeholder="Digite a sua senha">
                     <img src="/images/login/password-icon.png" alt="" class="iconInInput">
                 </div>
                 <div class="spaceInModels">
                     <label for="">Confirme sua senha: </label>
-                    <input type="password" name="" placeholder="Digite para confirmar a sua senha">
+                    <input type="password" id="passwordConf" onkeyup="validateInput('passwordConf')" placeholder="Digite para confirmar a sua senha">
                     <img src="/images/login/password-icon.png" alt="" class="iconInInput">
                 </div>
                 <div>
                     <div>
-                        <button type="button">Cadastrar</button>
+                        <button type="button" onclick="registerUser()">Cadastrar</button>
                     </div>
                 </div>
             </form>
@@ -52,5 +52,9 @@
     <script src="/bower_components/hasher/dist/js/hasher.min.js"></script>
     <script src="/bower_components/crossroads.js/dist/crossroads.min.js"></script>
     <script src="/script/routes.js"></script>
+    <script src="/config/secrets.js"></script>
+    <script src="/script/factory/AuthAPI.js"></script>
+    <script src="/script/controller/registerController.js"></script>
+    <script src="/script/controller/auth/validateController.js"></script>
 </body>
 </html>
