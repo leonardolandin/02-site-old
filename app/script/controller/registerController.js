@@ -17,35 +17,57 @@
         });
     }
 
+    this.validateFields = function(email, name, password, passwordConfirmed) {
+        let validateConfirm = true;
+
+        if(!email.value) {
+            invalidInput(email);
+            validateConfirm = false;
+        }
+
+        if(!name.value) {
+            invalidInput(name);
+            validateConfirm = false;
+        }
+
+        if(!password.value) {
+            invalidInput(password);
+            validateConfirm = false;
+        }
+
+        if(!passwordConfirmed.value) {
+            invalidInput(passwordConfirmed);
+            validateConfirm = false;
+        }
+
+        if(validateConfirm === true) {
+            return true
+        } else {
+            return false
+        }
+    }
+
     this.registerUser = function() {
         let email = document.getElementById('email');
         let name = document.getElementById('name');
         let password = document.getElementById('password');
         let passwordConfirmed = document.getElementById('passwordConf');
-        let validationFields = true;
 
-        if(!email.value) {
-            invalidInput(email);
-            validationFields = false;
-        }
+        if(validateFields(email, name, password, passwordConfirmed)) {
+            grecaptcha.ready(function() {
+                grecaptcha.execute(GOOGLE_RECAPTCHA_KEY, {action: 'login'}).then(function(token) {
+                    let newUserCredentials = {
+                        email: email.value,
+                        name: name.value,
+                        password: password.value,
+                        passwordConfirmed: passwordConfirmed.value
+                    }
 
-        if(!name.value) {
-            invalidInput(name);
-            validationFields = false;
-        }
-
-        if(!password.value) {
-            invalidInput(password);
-            validationFields = false;
-        }
-
-        if(!passwordConfirmed.value) {
-            invalidInput(passwordConfirmed);
-            validationFields = false;
-        }
-
-        if(validationFields) {
-            
+                    AuthAPI.registerUser('/register', newUserCredentials, function(data) {
+                        console.log(data)
+                    })
+                });
+            });
         }
     }
 })()

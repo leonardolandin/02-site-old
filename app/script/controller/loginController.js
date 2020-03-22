@@ -87,7 +87,7 @@
                                     localStorage.setItem('rememberMe', rememberMe.checked);
                                 }
 
-                                location.href = location.origin
+                                //location.href = location.origin
                             } else {
                                 return throwErrorValidation("Um erro inesperado ocorreu");
                             }
