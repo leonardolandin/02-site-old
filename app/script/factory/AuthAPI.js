@@ -17,19 +17,13 @@ AuthAPI.getUserByEmail = function(url, obj, callback) {
 
 
 AuthAPI.registerUser = function(url, obj, callback) {
-    let request = new XMLHttpRequest();
-
-    request.open("POST",  AUTH_API + url , true)
-    request.setRequestHeader('Content-Type', 'application/json')
-    
-
-    request.onreadystatechange = function() { 
-        if (request.readyState == 4 && request.status == 200) {
-            callback(request.responseText);
+    $.ajax({
+        url: AUTH_API + url + JSON.stringify(obj),
+        cache: false,
+        method: 'POST',
+        data: JSON.stringify(obj),
+        success: function(data) {
+            callback(data);
         }
-    }
-
-    request.send(JSON.stringify(obj));
-
-    return request
+    });
 }

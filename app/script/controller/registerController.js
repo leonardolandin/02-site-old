@@ -63,7 +63,7 @@
                         passwordConfirmed: passwordConfirmed.value
                     }
 
-                    AuthAPI.registerUser('/register', newUserCredentials, function(data) {
+                    AuthAPI.registerUser('/register/', newUserCredentials, function(data) {
                         console.log(data)
                     })
                 });
