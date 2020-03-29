@@ -60,7 +60,8 @@
                         email: email.value,
                         name: name.value,
                         password: password.value,
-                        passwordConfirmed: passwordConfirmed.value
+                        passwordConfirmed: passwordConfirmed.value,
+                        recaptcha: token
                     }
 
                     AuthAPI.registerUser('/register/', newUserCredentials, function(data) {
