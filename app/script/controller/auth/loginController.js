@@ -17,18 +17,16 @@
     }
 
     let rememberMe = document.getElementById('rememberMe');
-    let rememberMeLocal = localStorage.getItem('rememberMe');
+    let rememberMeLocal = JSON.parse(localStorage.getItem('rememberMe'));
 
-    if(rememberMeLocal == "true") {
+    if(rememberMeLocal && rememberMeLocal.remember) {
         let email = document.getElementById('email');
         let password = document.getElementById('password');
         rememberMe.checked = true;
         
-        if(localStorage.getItem('user')) {
-            let userObj =  JSON.parse(localStorage.getItem('user'));
-
-            email.value = userObj.email;
-            password.value = userObj.password;
+        if(rememberMeLocal.email && rememberMeLocal.password) {
+            email.value = rememberMeLocal.email;
+            password.value = rememberMeLocal.password;
         }
     } else {
         rememberMe.checked = false;
@@ -60,11 +58,13 @@
                         if(dataUser && dataUser.statusCode && dataUser.statusCode === 200) {
                             if(dataUser.recaptcha.success) {
                                 localStorage.setItem('user', JSON.stringify(dataUser.user))
-                                if(rememberMe.checked) {
-                                    localStorage.setItem('rememberMe', rememberMe.checked);
-                                } else {
-                                    localStorage.setItem('rememberMe', rememberMe.checked);
+                                let rememberObj = {
+                                    remember: rememberMe.checked,
+                                    email: dataUser.user.email,
+                                    password: dataUser.user.password
                                 }
+                                
+                                localStorage.setItem('rememberMe', JSON.stringify(rememberObj));
 
                                 location.href = location.origin
                             } else {
