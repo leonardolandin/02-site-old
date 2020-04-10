@@ -65,7 +65,21 @@
                     }
 
                     AuthAPI.registerUser('/register/', newUserCredentials, function(data) {
-                        console.log(data)
+                        let newUser = data;
+                        
+                        if(newUser && newUser.statusCode && newUser.statusCode === 401) {
+                            return throwErrorValidation(newUser.message, 'signup');
+                        }
+
+                        if(newUser && newUser.statusCode && newUser.statusCode === 200) {
+                            if(newUser.recaptcha.success) {
+                                localStorage.setItem('user', JSON.stringify(newUser.user));
+
+                                location.href = location.origin
+                            } else {
+                                return throwErrorValidation("Um erro inesperado ocorreu", 'signup');
+                            }
+                        }
                     })
                 });
             });

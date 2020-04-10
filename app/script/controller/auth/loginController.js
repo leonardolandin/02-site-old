@@ -36,27 +36,6 @@
         password.value = '';
     }
 
-    this.throwErrorValidation = function(message) {
-        let messageError = document.getElementById('messageError');
-        let email = document.getElementById('email');
-        let password = document.getElementById('password');
-        let containerError = document.getElementById('containerError');
-
-        if(containerError.style.visibility == 'visible') {
-            containerError.style.visibility = 'hidden';
-            containerError.style.opacity = '1';
-        }
-        containerError.style.visibility = 'visible';
-        messageError.innerHTML = message
-
-        invalidInput(email);
-        invalidInput(password);
-
-        setTimeout(function() {
-            containerError.style.opacity = '0';
-        }, 3000)
-    }
-
     this.submitLogin = function() {
         let email = document.getElementById('email');
         let password = document.getElementById('password');
