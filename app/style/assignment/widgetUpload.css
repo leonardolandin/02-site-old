@@ -1,0 +1,45 @@
+.widgetContainer {
+    position: fixed;
+    bottom: 70px;
+    right: 70px;
+}
+
+.buttonContainer {
+    cursor: pointer;
+    width: 68px;
+    height: 68px;
+    border-radius: 30px;
+    background-color: #5858c1;
+    border: none;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, .4);
+    font-size: 24px;
+    color: white;
+    transition: .2s ease-out;
+    -webkit-transition: .2s ease-out;
+    -moz-transition: .2s ease-out;
+    outline: none;
+}
+
+.buttonContainer img {
+    width: 30px;
+    height: 30px;
+}
+
+.modalUploadContainer {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(35, 33, 33, 0.4);
+}
+
+.modalUpload {
+    width: 60%;
+    height: 80%;
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 15px;
+    padding: 25px;
+}
