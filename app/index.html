@@ -7,21 +7,46 @@
     <link rel="shortcut icon" href="/images/ico-ajudando.ico" type="image/x-icon">
     <link rel="stylesheet" href="/style/index.css">
     <link rel="stylesheet" href="/style/assignment/widgetUpload.css">
-    <title>Ajudando</title>
+    <title>02</title>
 </head>
 <body>
     <div class="modalUploadContainer">
         <div class="modalUpload">
-            <div class="imageUpload">
-                <div class="uploadContainer" method="POST">
-                    <input type="file" multiple>
-                    <p>Faça o envio de uma imagem</p>
-                    <button type="submit">Selecionar Imagem</button>
+            <div class="informationsUpload">
+                <div class="imageUpload">
+                    <div class="uploadContainer" method="POST">
+                        <input type="file" id="selectImage" onchange="changeImageUpload(event)" accept="image/*">
+                        <img class="imagePreview" id="previewImage">
+                        <p>Faça o envio de uma imagem</p>
+                        <button id="selectImageButton" onchange="changeImageUpload(event)" type="submit">Selecionar Imagem</button>
+                    </div>
+                </div>
+                <div class="containerInfos">
+                    <div>
+                        <label for="assignmentName" onclick="">Nome da atividade:</label>
+                        <input type="text" id="assignmentName" placeholder="Ex: Atividade de português">
+                    </div>
+                    <div class="clearfix">
+                        <label for="">Descrição da atividade:</label>
+                        <textarea name="" id="" placeholder="Descrever os assuntos tratados na atividade." cols="20" autocomplete="off" rows="5"></textarea>
+                    </div>
+                    <div class="clearfix">
+                        <label for="">Escolaridade: </label>
+                        <select name="" id="">
+                            <option value="">Ensino Infantil</option>
+                            <option value="">Ensino Fundamental</option>
+                            <option value="">Ensino Médio</option>
+                            <option value="">Ensino Superior</option>
+                        </select>
+                    </div>
+                    <div class="autor">
+                        <label for="isAutor">Você é o auto desta imagem ?</label>
+                        <input type="radio" name="teste" id="isAutor">
+                    </div>
                 </div>
             </div>
-            <div>
-                <label for="">Info</label>
-                <input type="text">
+            <div class="containerButtonUpload">
+                <button>Enviar</button>
             </div>
         </div>
     </div>
@@ -76,5 +101,6 @@
     <script src="/script/factory/AssignmentAPI.js"></script>
     <script src="/script/controller/menuController.js"></script>
     <script src="/script/controller/assignment/listAssignmentController.js"></script>
+    <script src="/script/controller/assignment/uploadAssignmentController.js"></script>
 </body>
 </html>
