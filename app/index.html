@@ -10,15 +10,14 @@
     <title>02</title>
 </head>
 <body>
-    <div class="modalUploadContainer">
-        <div class="modalUpload">
+    <div class="modalUploadContainer" id="modalUploadContainer" onclick="controlModal(0)">
+        <div class="modalUpload" onclick="insideModal(event)">
             <div class="informationsUpload">
                 <div class="imageUpload">
                     <div class="uploadContainer" method="POST">
                         <input type="file" id="selectImage" onchange="changeImageUpload(event)" accept="image/*">
                         <img class="imagePreview" id="previewImage">
                         <p>Faça o envio de uma imagem</p>
-                        <button id="selectImageButton" onchange="changeImageUpload(event)" type="submit">Selecionar Imagem</button>
                     </div>
                 </div>
                 <div class="containerInfos">
@@ -88,8 +87,8 @@
             <h1>É ISSO, MORREMOS</h1>
         </div>
          
-        <div class="widgetContainer">
-            <button class="buttonContainer"><img src="/images/upload-icon.png" alt=""></button>
+        <div class="widgetContainer" onclick="controlModal(1)">
+            <button class="buttonContainer"><img src="/images/upload-icon.png"></button>
         </div>
     </div>
 

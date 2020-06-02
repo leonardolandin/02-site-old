@@ -11,4 +11,17 @@
 
         imageButton.style.display = 'block';
     }
+
+    this.controlModal = function(param) {
+        console.log(typeof param)
+        if(param) {
+            document.getElementById('modalUploadContainer').style.display = 'flex';
+        } else {
+            document.getElementById('modalUploadContainer').style.display = 'none';
+        }
+    }
+
+    this.insideModal = function(event) {
+        event.stopPropagation();
+    }
 })()

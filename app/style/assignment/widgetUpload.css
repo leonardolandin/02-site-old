@@ -29,10 +29,11 @@
     width: 100vw;
     height: 100vh;
     position: absolute;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     background: rgba(35, 33, 33, 0.4);
+    z-index: 1;
 }
 
 .modalUpload {
@@ -98,13 +99,8 @@
     border:0;
 }
 
-.imageUpload {
-    height: 57%;
-}
-
 .containerInfos {
     width: 100%;
-    height: 70%;
     display: flex;
     padding-left: 100px;
     flex-direction: column;
