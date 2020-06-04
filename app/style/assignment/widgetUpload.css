@@ -26,6 +26,7 @@
 }
 
 .modalUploadContainer {
+    font-family: cursive;
     width: 100vw;
     height: 100vh;
     position: absolute;
@@ -119,7 +120,6 @@
     height: 25px;
     width: 370px;
     border-radius: 3px;
-    padding-left: 15px;
     outline: none;
     border: 2px solid #9c9cd8;
 }
@@ -146,26 +146,6 @@
 
 .clearfix {
     margin-top: 35px;
-}
-
-.autor {
-    margin-top: 35px;
-    flex-direction: row-reverse !important;
-    justify-content: flex-end;
-    align-items: center;
-}
-
-.autor > input {
-    border-radius: 3px;
-    padding-left: 15px;
-    outline: none;
-    border: 2px solid #9c9cd8;
-    height: 20px !important;
-    width: 20px !important;
-}
-
-.autor > label {
-    padding-left: 10px;
 }
 
 .informationsUpload {
@@ -202,3 +182,68 @@
     position: absolute;
 }
 
+.containerAutor {
+    flex-direction: row !important;
+    align-items: center;
+    margin-top: 35px;
+}
+
+.insideAutor {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 16px !important;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  .insideAutor > input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  .checkboxAutor {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+  }
+  
+  .insideAutor:hover input ~ .checkboxAutor {
+    background-color: #ccc;
+  }
+  
+  .insideAutor input:checked ~ .checkboxAutor {
+    background-color: #2196f3;
+  }
+  
+  .checkboxAutor:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  .insideAutor input:checked ~ .checkboxAutor:after {
+    display: block;
+  }
+  
+  .insideAutor .checkboxAutor:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }

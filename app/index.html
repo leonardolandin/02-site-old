@@ -14,37 +14,40 @@
         <div class="modalUpload" onclick="insideModal(event)">
             <div class="informationsUpload">
                 <div class="imageUpload">
-                    <div class="uploadContainer" method="POST">
+                    <div id="containerUpload" class="uploadContainer" method="POST">
                         <input type="file" id="selectImage" onchange="changeImageUpload(event)" accept="image/*">
                         <img class="imagePreview" id="previewImage">
-                        <p>Faça o envio de uma imagem</p>
+                        <p id="colorInsideContainer">Faça o envio de uma imagem</p>
                     </div>
                 </div>
                 <div class="containerInfos">
                     <div>
-                        <label for="assignmentName" onclick="">Nome da atividade:</label>
-                        <input type="text" id="assignmentName" placeholder="Ex: Atividade de português">
+                        <label for="nameAssignment">Nome da atividade:</label>
+                        <input type="text" id="nameAssignment" onkeyup="validateInput('nameAssignment', '#9c9cd8')" placeholder="Ex: Atividade de português">
                     </div>
                     <div class="clearfix">
-                        <label for="">Descrição da atividade:</label>
-                        <textarea name="" id="" placeholder="Descrever os assuntos tratados na atividade." cols="20" autocomplete="off" rows="5"></textarea>
+                        <label for="descriptionAssignment">Descrição da atividade:</label>
+                        <textarea name="" id="descriptionAssignment" onkeyup="validateInput('descriptionAssignment', '#9c9cd8')" placeholder="Descrever os assuntos tratados na atividade." cols="20" autocomplete="off" rows="5"></textarea>
                     </div>
                     <div class="clearfix">
                         <label for="">Escolaridade: </label>
-                        <select name="" id="">
-                            <option value="">Ensino Infantil</option>
-                            <option value="">Ensino Fundamental</option>
-                            <option value="">Ensino Médio</option>
-                            <option value="">Ensino Superior</option>
+                        <select onchange="validateInput('typeAssignment', '#9c9cd8')" id="typeAssignment">
+                            <option value="0">-- Selecione --</option>
+                            <option value="1">Ensino Infantil</option>
+                            <option value="2">Ensino Fundamental</option>
+                            <option value="3">Ensino Médio</option>
+                            <option value="4">Ensino Superior</option>
                         </select>
                     </div>
-                    <div class="autor">
-                        <label for="isAutor">Você é o auto desta imagem ?</label>
-                        <input type="radio" name="teste" id="isAutor">
+                    <div class="containerAutor">
+                        <label class="insideAutor">Você é o autor dessa imagem?
+                            <input type="checkbox" id="isAutor">
+                            <span class="checkboxAutor"></span>
+                        </label>
                     </div>
                 </div>
             </div>
-            <div class="containerButtonUpload">
+            <div class="containerButtonUpload" onclick="submitUpload()">
                 <button>Enviar</button>
             </div>
         </div>
@@ -101,5 +104,6 @@
     <script src="/script/controller/menuController.js"></script>
     <script src="/script/controller/assignment/listAssignmentController.js"></script>
     <script src="/script/controller/assignment/uploadAssignmentController.js"></script>
+    <script src="/script/controller/validateController.js"></script>
 </body>
 </html>
