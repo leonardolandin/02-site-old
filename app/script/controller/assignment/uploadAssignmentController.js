@@ -8,9 +8,11 @@
 
         const reader = new FileReader();
 
-        reader.onload = e => preview.src = e.target.result;
-        reader.readAsDataURL(file);
-        document.getElementById('containerUpload').style.borderColor = 'black';
+        if(file) {
+            reader.onload = e => preview.src = e.target.result;
+            reader.readAsDataURL(file);
+            document.getElementById('containerUpload').style.borderColor = 'black';
+        }
     }
 
     this.controlModal = function(param) {
@@ -18,6 +20,10 @@
             document.getElementById('modalUploadContainer').style.display = 'flex';
         } else {
             document.getElementById('modalUploadContainer').style.display = 'none';
+            document.getElementById('nameAssignment').value = '';
+            document.getElementById('descriptionAssignment').value = '';
+            document.getElementById('typeAssignment').value = '0';
+            document.getElementById('isAutor').checked = false;
         }
     }
 
@@ -31,18 +37,44 @@
         let typeAssignment = document.getElementById('typeAssignment').value;
         let isAutor = document.getElementById('isAutor').checked;
         let imageUpload = document.getElementById('selectImage').files.item(0);
+        let previewImage = document.getElementById('previewImage');
 
-        validateAssignment(nameAssignment, descriptionAssignment, typeAssignment, imageUpload)
+        if(validateAssignment(nameAssignment, descriptionAssignment, typeAssignment, imageUpload)) {
+            let Objuser = {};
 
-        assignmentUpload = {
-            nameAssignment: nameAssignment,
-            descriptionAssignment: descriptionAssignment,
-            typeAssignment: typeAssignment,
-            isAutor: isAutor,
-            imageUpload: imageUpload
+            let objImage = {
+                name: imageUpload.name,
+                stringBase64: previewImage.src
+            };
+
+            let userStorage = JSON.parse(localStorage.getItem('user'));
+
+            if(userStorage !== undefined) {
+                Objuser = {
+                    id: userStorage._id,
+                    name: userStorage.name,
+                    email: userStorage.email
+                }
+            } else {
+                Objuser = null;
+            }
+
+            assignmentUpload = {
+                nameAssignment: nameAssignment,
+                descriptionAssignment: descriptionAssignment,
+                typeAssignment: typeAssignment,
+                isAutor: isAutor,
+                imageUpload: objImage,
+                user: Objuser
+            }
+
+            AssignmentAPI.uploadAssignments('/uploadAssignments' , assignmentUpload, function(data) {
+                console.log(data)
+            }, function(error) {
+                console.log(error)
+            })
+
         }
-
-
 
     }
 
@@ -50,7 +82,6 @@
         let nameAssignmentElement = document.getElementById('nameAssignment');
         let descriptionAssignmentElement = document.getElementById('descriptionAssignment');
         let typeAssignmentElement = document.getElementById('typeAssignment');
-        let imageUploadElement = document.getElementById('selectImage').files.item(0);
         let containerImage = document.getElementById('containerUpload');
         let getError = false;
 

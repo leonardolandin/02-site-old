@@ -14,3 +14,18 @@ AssignmentAPI.getAssignments = function(obj, callback) {
 
     return request
 }
+
+AssignmentAPI.uploadAssignments = function(url, obj, callback, error) {
+    $.ajax({
+        url: BACK_API + url,
+        cache: false,
+        method: 'POST',
+        data: obj,
+        success: function(data) {
+            callback(data);
+        },
+        error: function(data) {
+            error(data)
+        }
+    });
+}
