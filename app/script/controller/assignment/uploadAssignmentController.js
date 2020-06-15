@@ -32,12 +32,17 @@
     }
 
     this.submitUpload = function() {
+        let loading = document.getElementById('loading');
+        let submit = document.getElementById('submit');
         let nameAssignment = document.getElementById('nameAssignment').value;
         let descriptionAssignment = document.getElementById('descriptionAssignment').value;
         let typeAssignment = document.getElementById('typeAssignment').value;
         let isAutor = document.getElementById('isAutor').checked;
         let imageUpload = document.getElementById('selectImage').files.item(0);
         let previewImage = document.getElementById('previewImage');
+
+        submit.style.display = 'none';
+        loading.style.display = 'block';
 
         if(validateAssignment(nameAssignment, descriptionAssignment, typeAssignment, imageUpload)) {
             let Objuser = {};
@@ -71,7 +76,7 @@
             AssignmentAPI.uploadAssignments('/uploadAssignments' , assignmentUpload, function(data) {
                 console.log(data)
             }, function(error) {
-                console.log(error)
+                console.log('erro:',error)
             })
 
         }
@@ -108,6 +113,9 @@
 
         if(!getError) {
             return true
+        } else {
+            submit.style.display = 'block';
+            loading.style.display = 'none';
         }
     }
 })()
