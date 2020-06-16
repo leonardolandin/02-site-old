@@ -11,6 +11,9 @@
 </head>
 <body>
     <div class="modalUploadContainer" id="modalUploadContainer" onclick="controlModal(0)">
+        <div class="containerError" id="containerError" onclick="insideModal(event)">
+            <span id="messageError"></span>
+        </div>
         <div class="modalUpload" onclick="insideModal(event)">
             <div class="informationsUpload">
                 <div class="imageUpload">
@@ -47,8 +50,8 @@
                     </div>
                 </div>
             </div>
-            <div class="containerButtonUpload" onclick="submitUpload()">
-                <button>
+            <div class="containerButtonUpload">
+                <button onclick="submitUpload()" id="buttonUpload" type="button">
                     <img id="loading" src="/images/loading.gif" class="loading">    
                     <p id="submit">Enviar</p>
                 </button>

@@ -31,6 +31,20 @@
         event.stopPropagation();
     }
 
+    this.disableButton = function(button) {
+        button.disabled = true;
+        button.style.backgroundColor = '#949eb1';
+        button.style.borderColor = '#949eb1';
+        button.style.color = '#d4d6dc';
+    }
+
+    this.enableButton = function(button) {
+        button.disabled = false;
+        button.style.backgroundColor = '#4371c5';
+        button.style.borderColor = '#646494';
+        button.style.color = 'white';
+    }
+
     this.submitUpload = function() {
         let loading = document.getElementById('loading');
         let submit = document.getElementById('submit');
@@ -40,11 +54,13 @@
         let isAutor = document.getElementById('isAutor').checked;
         let imageUpload = document.getElementById('selectImage').files.item(0);
         let previewImage = document.getElementById('previewImage');
+        let buttonUpload = document.getElementById('buttonUpload');
 
         submit.style.display = 'none';
         loading.style.display = 'block';
 
         if(validateAssignment(nameAssignment, descriptionAssignment, typeAssignment, imageUpload)) {
+            disableButton(buttonUpload)
             let Objuser = {};
 
             let objImage = {
@@ -74,13 +90,59 @@
             }
 
             AssignmentAPI.uploadAssignments('/uploadAssignments' , assignmentUpload, function(data) {
-                console.log(data)
+                if(data && data.msg) {
+                    throwErrorValidationSuccess(data.msg);
+                    setTimeout(function() {
+                        controlModal(0)
+                    }, 3000)
+                }
             }, function(error) {
-                console.log('erro:',error)
+                submit.style.display = 'flex';
+                loading.style.display = 'none';
+                enableButton(buttonUpload);
+                return throwErrorValidationUpload(error.responseJSON.messageError || 'Um erro inesperado aconteceu');
             })
 
         }
 
+    }
+
+    this.throwErrorValidationUpload = function(message) {
+        let messageError = document.getElementById('messageError');
+        let containerError = document.getElementById('containerError');
+
+        containerError.style.backgroundColor = '#fd4545';
+        containerError.style.borderColor = '#fd4545';
+    
+        if(containerError.style.visibility == 'visible') {
+            containerError.style.visibility = 'hidden';
+            containerError.style.opacity = '1';
+        }
+        containerError.style.visibility = 'visible';
+        messageError.innerHTML = message
+    
+        setTimeout(function() {
+            containerError.style.opacity = '0';
+        }, 3000)
+    }
+
+    this.throwErrorValidationSuccess = function(message) {
+        let messageError = document.getElementById('messageError');
+        let containerError = document.getElementById('containerError');
+
+        containerError.style.backgroundColor = '#3ec148';
+        containerError.style.borderColor = '#3ec148';
+    
+        if(containerError.style.visibility == 'visible') {
+            containerError.style.visibility = 'hidden';
+            containerError.style.opacity = '1';
+        }
+        containerError.style.visibility = 'visible';
+        messageError.innerHTML = message
+    
+        setTimeout(function() {
+            containerError.style.opacity = '0';
+        }, 3000)
     }
 
     this.validateAssignment = function(nameAssignment, descriptionAssignment, typeAssignment, imageUpload) {
