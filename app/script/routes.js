@@ -1,6 +1,6 @@
 (function() {
   crossroads.addRoute('/', function() {
-    renderPage('perdemos')
+    renderPage('assignments')
   });
 
   crossroads.addRoute('entrar', function() {

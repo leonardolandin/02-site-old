@@ -1,18 +1,18 @@
 const AssignmentAPI = {}
 
-AssignmentAPI.getAssignments = function(obj, callback) {
-    let request = new XMLHttpRequest();
-    
-    request.onreadystatechange = function() { 
-        if (request.readyState == 4 && request.status == 200) {
-            callback(request.responseText);
+AssignmentAPI.getAssignments = function(obj, callback, erro) {
+    $.ajax({
+        url: BACK_API,
+        cache: false,
+        method: 'GET',
+        data: obj,
+        success: function(data) {
+            callback(data);
+        },
+        error: function(data) {
+            erro(data)
         }
-    }
-
-    request.open("GET",  BACK_API , true)
-    request.send();
-
-    return request
+    });
 }
 
 AssignmentAPI.uploadAssignments = function(url, obj, callback, error) {
@@ -26,6 +26,21 @@ AssignmentAPI.uploadAssignments = function(url, obj, callback, error) {
         },
         error: function(data) {
             error(data)
+        }
+    });
+}
+
+AssignmentAPI.getAssignmentsById = function(obj, callback, erro) {
+    $.ajax({
+        url: BACK_API + '/getAssignment/' + obj,
+        cache: false,
+        method: 'GET',
+        data: obj,
+        success: function(data) {
+            callback(data);
+        },
+        error: function(data) {
+            erro(data)
         }
     });
 }

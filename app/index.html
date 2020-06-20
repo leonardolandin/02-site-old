@@ -7,7 +7,8 @@
     <link rel="shortcut icon" href="/images/ico-ajudando.ico" type="image/x-icon">
     <link rel="stylesheet" href="/style/index.css">
     <link rel="stylesheet" href="/style/assignment/widgetUpload.css">
-    <title>02</title>
+    <link rel="stylesheet" href="/style/assignment/viewImage.css">
+    <title>02 - Project</title>
 </head>
 <body>
     <div class="modalUploadContainer" id="modalUploadContainer" onclick="controlModal(0)">
@@ -58,6 +59,35 @@
             </div>
         </div>
     </div>
+    <div class="modalViewContainer" id="modalViewContainer" onclick="controlModalAssignment()">
+        <div class="containerError" id="containerError" onclick="insideModal(event)">
+            <span id="messageError"></span>
+        </div>
+        <div class="modalUpload" onclick="insideModal(event)">
+            <div class="informationsUpload">
+                <div class="imageUploaded">
+                    <img id="imageAssignmentView" download>
+                </div>
+                <div class="containerInfos">
+                    <div>
+                        <label>Nome da atividade:</label>
+                        <span id="nameAssignmentView"></span>
+                    </div>
+                    <div class="clearfix">
+                        <label>Descrição da atividade:</label>
+                        <span id="descriptionAssignmentView"></span>
+                    </div>
+                    <div class="clearfix">
+                        <label>Escolaridade: </label>
+                        <span id="typeAssignmentView"></span>
+                    </div>
+                    <div class="containerAutor">
+                        <label>Você é o autor dessa imagem? </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="bodyContainer">
         <div class="menuContainer">
             <nav>
@@ -86,21 +116,12 @@
                 </div>
             </nav>
         </div>
-        <div class="divContainer" id="perdemos">
-            <h1>É ISSO, perdemos</h1>
-        </div>
-        <div class="divContainer" id="ganhamos">
-            <h1>É ISSO, GANHAMOS</h1>
-        </div>
-        <div class="divContainer" id="morremos">
-            <h1>É ISSO, MORREMOS</h1>
-        </div>
-         
+        <div class="containerAssignments" id="assignments">
+        </div>         
         <div class="widgetContainer" onclick="controlModal(1)">
             <button class="buttonContainer"><img src="/images/upload-icon.png"></button>
         </div>
     </div>
-
     <script src="/bower_components/js-signals/dist/signals.min.js"></script>
     <script src="/bower_components/hasher/dist/js/hasher.min.js"></script>
     <script src="/bower_components/crossroads.js/dist/crossroads.min.js"></script>

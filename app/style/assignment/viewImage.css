@@ -1,0 +1,22 @@
+.modalViewContainer {
+    font-family: cursive;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background: rgba(35, 33, 33, 0.4);
+    z-index: 1;
+}
+
+.imageUploaded {
+    max-width: 45%;
+    max-height: 75%;
+    display: flex;
+}
+
+.imageUploaded > img {
+    width: 100%;
+    height: 100%;
+}
