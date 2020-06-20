@@ -24,6 +24,9 @@
             document.getElementById('descriptionAssignment').value = '';
             document.getElementById('typeAssignment').value = '0';
             document.getElementById('isAutor').checked = false;
+            enableButton(document.getElementById('submit'))
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('submit').style.display = 'flex';
         }
     }
 
@@ -94,6 +97,7 @@
                     throwErrorValidationSuccess(data.msg);
                     setTimeout(function() {
                         controlModal(0)
+                        reloadImages();
                     }, 3000)
                 }
             }, function(error) {

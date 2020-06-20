@@ -66,23 +66,29 @@
         <div class="modalUpload" onclick="insideModal(event)">
             <div class="informationsUpload">
                 <div class="imageUploaded">
-                    <img id="imageAssignmentView" download>
+                    <a id="downloadImage" download="image.jpg">
+                        <img id="imageAssignmentView" download>
+                    </a>
                 </div>
                 <div class="containerInfos">
                     <div>
                         <label>Nome da atividade:</label>
-                        <span id="nameAssignmentView"></span>
+                        <span class="viewInfoSpan" id="nameAssignmentView"></span>
                     </div>
                     <div class="clearfix">
                         <label>Descrição da atividade:</label>
-                        <span id="descriptionAssignmentView"></span>
+                        <span class="viewInfoSpan" id="descriptionAssignmentView"></span>
                     </div>
                     <div class="clearfix">
                         <label>Escolaridade: </label>
-                        <span id="typeAssignmentView"></span>
+                        <span class="viewInfoSpan" id="typeAssignmentView"></span>
+                    </div>
+                    <div class="clearfix">
+                        <label>Data de envio: </label>
+                        <span class="viewInfoSpan" id="dateCreate"></span>
                     </div>
                     <div class="containerAutor">
-                        <label>Você é o autor dessa imagem? </label>
+                        <span class="viewInfoSpan" id="isAutorView"></span>
                     </div>
                 </div>
             </div>
