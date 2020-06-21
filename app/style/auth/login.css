@@ -23,8 +23,8 @@
 }
 
 .containerModalLogin {
-  height: 60%;
-  width: 30%;
+  height: 44%;
+  width: 20%;
   background-color: white;
   border: 1px solid white;
   border-radius: 12px;
@@ -110,7 +110,7 @@
 @media (max-width: 375px) {
   .containerModalLogin {
     width: 70%;
-    height: 70%;
+    height: 50%;
   }
   .formLogin > div > div > button {
     width: 30%;
@@ -120,6 +120,7 @@
 @media (min-width: 376px) and (max-width: 450px) {
   .containerModalLogin {
     width: 70%;
+    height: 54%;
   }
 }
 

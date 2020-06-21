@@ -1,5 +1,5 @@
 .containerModalLogin {
-    height: 70%;
+    height: 50%;
 }
 
 .formLogin > div > div {
@@ -20,7 +20,7 @@
 @media (max-width: 375px) {
     .containerModalLogin {
         width: 70%;
-        height: 80%;
+        height: 60%;
     }
 }
 
@@ -33,6 +33,13 @@
 @media (min-width: 320px) and (max-width: 500px) {
     .formLogin > div > input {
         width: 70%;
+    }
+}
+
+@media (max-width: 450px) and (min-width: 376px) {
+    .containerModalLogin {
+        width: 70%;
+        height: 60%;
     }
 }
 
